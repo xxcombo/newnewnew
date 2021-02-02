@@ -3,12 +3,23 @@
 <div class='gallery'>
   <% @posts.each do | post | %>
   <div class='col-lg-3 col-md-3 col-xs-4  picture'>
-    <div class='image'><%= link_to(image_tag(post.picture_url), [post.domitory, post]) if post.picture? %></div>
+    <div class='image'>
+      <%= link_to [post.domitory, post] do %>
+      <div class="ui small fade reveal image">
+      <img class="visible content" src="https://www.hogwartsprofessor.com/wp-content/uploads/2011/10/Gryffindor-Lion.jpg" alt="">
+      <%= image_tag(post.picture_url, class: "hidden content") %>
+      </div>
+      <% end if post.picture?%>
+    </div>
     <div class='title'><%= post.title %></div>
     <div class='content'><%= post.content %></div>
     <div class='actions'>
-      <%= link_to fa_icon('eye'), [post.domitory, post] %>
-      <%= link_to fa_icon('edit'), edit_domitory_post_path(post.domitory, post) %>
+      <%= link_to [post.domitory, post] do %>
+      <i class="fa fa-eye"></i>
+      <% end %>
+      <%= link_to edit_domitory_post_path(post.domitory, post) do %>
+      <i class="fa fa-edit"></i>
+      <% end %>
       <%= link_to fa_icon('trash'), [post.domitory, post], method: :delete, data: { confirm: 'Are you sure?' } %>
     </div>
   </div>

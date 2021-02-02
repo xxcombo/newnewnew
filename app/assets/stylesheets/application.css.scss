@@ -91,9 +91,12 @@
   }
 }
 
+  :root{
+    --harry-footer-height: 50px;
+  }
   .mainfooter {
     position: fixed;
-    heigth: 50px;
+    height: var(--harry-footer-height);
     width: 100%;
     bottom: 0;
     background-color: black;
