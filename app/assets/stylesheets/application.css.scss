@@ -1,5 +1,11 @@
 
 @import "index.css.scss";
+@import "bootstrap-sprockets";
+@import "bootstrap";
+@import "font-awesome";
+@import 'posts';
+@import 'comments';
+
 .hidden.menu {
   display: none;
 }

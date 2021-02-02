@@ -1,14 +1,18 @@
-<%= simple_form_for([@post.domitory, @post]) do |f| %>
+<%= simple_form_for(@domitory.present? ? [@post.domitory, @post] : @post) do |f| %>
 <%= f.error_notification %>
 
 <div class="form-inputs">
   <%= f.input :title %>
   <%= f.input :content, input_html: { rows: 10 } %>
+  <% if @post.domitory.post_type == :gallery %>
+  <%= f.input :picture, as: :file %>
+  <%= f.hidden_field :picture_cache %>
+  <% end %>
 </div>
 
 <div class="form-actions">
   <%= f.button :submit %>
-  <%= link_to 'Show', [@post.domitory, @post], class: 'btn btn-default' if @post.persisted? %>
-  <%= link_to 'List', domitory_posts_path(@domitory), class: 'btn btn-default' %>
+  <%= link_to 'Show', (@domitory.present? ? [@post.domitory, @post] : @post), class: 'btn btn-default' if @post.persisted? %>
+  <%= link_to 'List', (@domitory.present? ? domitory_posts_path(@domitory) : posts_path), class: 'btn btn-default' %>
 </div>
 <% end %>

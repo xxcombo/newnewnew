@@ -65,3 +65,8 @@ gem 'bootstrap-sass', '~> 3.3.6'
 gem 'simple_form'
 gem 'simple_enum', '~> 2.3.0' , require: 'simple_enum/mongoid'
 gem 'solargraph', group: :development
+gem 'carrierwave', '~> 2.0'
+gem 'mini_magick'
+gem 'font-awesome-rails'
+gem 'bootstrap_flash_messages', '~> 1.0.1'
+gem 'acts-as-taggable-on', '~> 4.0'
