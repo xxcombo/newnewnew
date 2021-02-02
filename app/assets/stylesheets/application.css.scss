@@ -5,7 +5,7 @@
 }
 
 .masthead.segment {
-  min-height: 700px;
+  min-height: 20px;
   padding: 1em 0em;
 }
 .masthead .logo.item img {
@@ -84,3 +84,35 @@
     font-size: 1.5em;
   }
 }
+
+  .mainfooter {
+    position: fixed;
+    heigth: 50px;
+    width: 100%;
+    bottom: 0;
+    background-color: black;
+  }
+  
+  .mainfooter-ment {
+    color: yellow;
+  }
+
+  .door-main {
+    text-align: center;
+    color: white;
+    background-color: black;
+
+  }
+
+
+  .doorgif {
+    background-color: black;
+    display: block;
+    padding: 40px;
+    width: 80%;
+    height: 40%;
+    vertical-align: middle;
+    text-align: center;
+    justify-items: center;
+    align-items: center;
+  }

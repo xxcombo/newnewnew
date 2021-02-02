@@ -5,6 +5,7 @@
   <title>Newnew</title>
   <%= csrf_meta_tags %>
   <%= csp_meta_tag %>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
 
   <link href="https://fonts.googleapis.com/css?family=Comfortaa:300,700|Lobster+Two" rel="stylesheet">
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -14,20 +15,29 @@
 </head>
 
 <body>
+  <div class="pusher" style="position: fixed; heigth: 50px; width: 100%; margin-bottom: 50px;">
+    <div class="ui inverted vertical masthead center aligned segment">
+      <div class="ui container">
+        <div class="ui large secondary inverted pointing menu">
+          <a class="toc item">
+            <i class="sidebar icon"></i>
+          </a>
+          <li class="<%= params[:domitory_id] == '1' ? 'active' : '' %>"><%= link_to 'gryffindor', domitory_posts_path('1') %></li>
+          <li class="<%= params[:domitory_id] == '2' ? 'active' : '' %>"><%= link_to 'Hufflepuff', domitory_posts_path('2') %></li>
+          <li class="<%= params[:domitory_id] == '3' ? 'active' : '' %>"><%= link_to 'Ravenclaw', domitory_posts_path('3') %></li>
+          <li class="<%= params[:domitory_id] == '4' ? 'active' : '' %>"><%= link_to 'Slytherin', domitory_posts_path('4') %></li>
+        </div>
+      </div>
 
-  <div class="ui container">
-    <div class="ui large secondary inverted pointing menu">
-      <a class="toc item">
-        <i class="sidebar icon"></i>
-      </a>
-      <a class="active item">Gryffindor</a>
-      <a class="item">Slytherin</a>
-      <a class="item">Hufflepuff</a>
-      <a class="item">Ravenclaw</a>
     </div>
   </div>
-  
   <%= yield %>
+
+  <!-- footer -->
+  <div class="mainfooter">
+    <h4><a href="https://ko.wikipedia.org/wiki/%ED%95%B4%EB%A6%AC_%ED%8F%AC%ED%84%B0%EC%9D%98_%EB%A7%88%EB%B2%95_%EB%AA%A9%EB%A1%9D" target="_blank">Magic Spell</a></h4>
+    <p class="mainfooter-ment"> when you confused what you can type </p>
+  </div>
 </body>
 
 </html>
