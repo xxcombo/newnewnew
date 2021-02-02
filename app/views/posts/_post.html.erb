@@ -1,0 +1,5 @@
+<li>
+  <span class='label label-default'><%= post.try(:domitory).try(:title) %></span>
+  <%= link_to post.title, [post.domitory, post] %>
+  <%= time_ago_in_words(post.created_at) %> ago
+</li>

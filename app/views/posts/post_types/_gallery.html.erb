@@ -1,0 +1,19 @@
+<h2><%= domitory_path params[:domitory_id] %></h2>
+
+<div class='gallery'>
+  <% @posts.each do | post | %>
+  <div class='col-lg-3 col-md-3 col-xs-4  picture'>
+    <div class='image'><%= link_to(image_tag(post.picture_url), [post.domitory, post]) if post.picture? %></div>
+    <div class='title'><%= post.title %></div>
+    <div class='content'><%= post.content %></div>
+    <div class='actions'>
+      <%= link_to fa_icon('eye'), [post.domitory, post] %>
+      <%= link_to fa_icon('edit'), edit_domitory_post_path(post.domitory, post) %>
+      <%= link_to fa_icon('trash'), [post.domitory, post], method: :delete, data: { confirm: 'Are you sure?' } %>
+    </div>
+  </div>
+  <% end %>
+</div>
+<br>
+
+<%= link_to 'New Post', new_domitory_post_path, class: 'btn btn-default' %>

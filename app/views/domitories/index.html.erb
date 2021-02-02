@@ -1,0 +1,29 @@
+<h2>domitory</h2>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Description</th>
+      <th>Data actions</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @domitories.each do |domitory| %>
+    <tr>
+      <td><%= domitory.title %></td>
+      <td><%= domitory.description %></td>
+      <td>
+        <%= link_to 'Show', domitory, class: 'btn btn-default' %>
+        <%= link_to 'Edit', edit_domitory_path(domitory), class: 'btn btn-default' %>
+        <%= link_to 'Destroy', domitory, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-default' %>
+    </tr>
+    </td>
+
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+<%= link_to 'New Domitory', new_domitory_path, class: 'btn btn-default' %>

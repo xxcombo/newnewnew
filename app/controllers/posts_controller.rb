@@ -3,15 +3,7 @@ class PostsController < ApplicationController
   before_action :set_post, only: [:show, :edit, :update, :destroy]
 
   def index
-    if @domitory.present?
-      @posts = @domitory.posts.all
-    else
-      if params[:tag]
-        @posts = Post.tagged_with(params[:tag])
-      else
-        @posts = Post.all
-      end
-    end
+        @posts = @domitory.present? ? @domitory.posts.all : Post.all
   end
 
   def show
@@ -26,8 +18,8 @@ class PostsController < ApplicationController
   end
 
   def create
-    
     @post = @domitory.present? ? @domitory.posts.new(post_params) : Post.new(post_params)
+    
     respond_to do |format|
       if @post.save
         format.html { redirect_to (@domitory.present? ? [@post.domitory, @post] : @post), notice: 'Post was successfully created.' }

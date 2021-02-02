@@ -2,7 +2,6 @@ class PictureUploader < CarrierWave::Uploader::Base
   # Include RMagick or MiniMagick support:
   # include CarrierWave::RMagick
   # include CarrierWave::MiniMagick
-  after :remove, :delete_empty_upstream_dirs
 
   # Choose what kind of storage to use for this uploader:
   storage :file
@@ -45,18 +44,4 @@ class PictureUploader < CarrierWave::Uploader::Base
   # def filename
   #   "something.jpg" if original_filename
   # end
-
-  def base_store_dir
-    "uploads/#{model.class.to_s.underscore}/#{mounted_as}"
-  end
-
-  def delete_empty_upstream_dirs
-    path = ::File.expand_path(store_dir, root)
-    Dir.delete(path) # fails if path not empty dir
-
-    path = ::File.expand_path(base_store_dir, root)
-    Dir.delete(path) # fails if path not empty dir
-  rescue SystemCallError
-    true # nothing, the dir is not empty
-  end
 end
