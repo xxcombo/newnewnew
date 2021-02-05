@@ -16,15 +16,13 @@
 
 <body>
 
-  <%= render 'shared/header' %>
+  <div class="hogwart">
+    <%= render 'shared/header' %>
 
-  
 
-  <%= yield %>
-
-  <div class="mainfooter">
-    <h4><a href="https://ko.wikipedia.org/wiki/%ED%95%B4%EB%A6%AC_%ED%8F%AC%ED%84%B0%EC%9D%98_%EB%A7%88%EB%B2%95_%EB%AA%A9%EB%A1%9D" target="_blank">Magic Spell</a></h4>
-    <p class="mainfooter-ment"> when you confused what you can type </p>
+    <%= yield %>
+    <a class="btn btn-default" href="/" style="position:fixed; bottom:0; right: 0px; margin:20px; padding:8px; padding-top: 5px; padding-botton: 9px;">
+    Go To First</a>
   </div>
 
 </body>

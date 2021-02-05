@@ -78,9 +78,6 @@
   .secondary.pointing.menu .toc.item {
     display: block;
   }
-  .masthead.segment {
-    min-height: 350px;
-  }
   .masthead h1.ui.header {
     font-size: 2em;
     margin-top: 1.5em;
@@ -99,14 +96,16 @@
     height: var(--harry-footer-height);
     width: 100%;
     bottom: 0;
+    color:black;
     background-color: black;
   }
   
   .mainfooter-ment {
-    color: yellow;
+    color: #606060;
   }
 
   .door-main {
+    height: 100%;
     text-align: center;
     color: white;
     background-color: black;
@@ -115,13 +114,58 @@
 
 
   .doorgif {
+    max-width: 700px;
     background-color: black;
-    display: block;
     padding: 40px;
     width: 80%;
     height: 40%;
-    vertical-align: middle;
     text-align: center;
-    justify-items: center;
-    align-items: center;
+  }
+
+  .domidoor {
+    width: 100%;
+    min-width: 400px;
+    max-width: 1000px;
+    height: 60em;
+  }
+  
+  .domi-image {
+    background-color: black;
+    text-align: center;
+  }
+  
+  .hogwart {
+    background-image: url('https://image.freepik.com/free-vector/night-sky-background-with-stars_104785-147.jpg');
+    background-size: contain;
+    height: inherit ;
+  }
+
+  .makepicture {
+    position: fixed;
+    bottom: 0;
+    right: 100px;
+    margin: 20px;
+  }
+
+  .commentbutton {
+    right: 0;
+  }
+
+  .characterpicture {
+    display:block; 
+    border-radius:50px; 
+    text-align: center;
+  }
+
+  .container {
+    display: grid;
+    grid-template-columns: 250px 250px auto;
+    grid-template-rows: 260px 260px auto;
+  }
+
+  .gallery {
+    grid-column-start: 1;
+    grid-column-end: 4;
+    grid-row-start: 1;
+    grid-row-end: 4;
   }

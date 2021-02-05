@@ -1,10 +1,9 @@
 
-<div class="pusher" style="position: fixed; heigth: 50px; width: 100%; margin-bottom: 50px;">
+<div class="pusher" style="position: static; heigth: 50px; width: 100%;">
   <div class="ui inverted vertical masthead center aligned segment">
     <div class="ui container">
       <div class="ui large secondary inverted pointing menu">
         <a class="toc item">
-          <i class="sidebar icon"></i>
         </a>
         <% Domitory.all.each do |domitory| %>
           <li class="<%= params[:domitory_id] == domitory.id ? 'active' : '' %>">

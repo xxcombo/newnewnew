@@ -1,27 +1,26 @@
-<h2><%= domitory_path params[:domitory_id] %></h2>
-
 <table class='table'>
   <tr>
-    <th>Title</th>
-    <td><%= @post.title %></td>
+    <th>Picture</th>
+    <td><%= image_tag @post.picture_url, :class=>"characterpicture"%></td>
   </tr>
   <tr>
-    <th>Content</th>
-    <td><%= @post.content %></td>
+    <th style="text-align: center; color: black; background-color: magenta;">Title</th>
+    <td style="text-align: center; color: black; background-color: yellow;"><%= @post.title %></td>
+  </tr>
+  <tr>
+    <th style="text-align: center; color: black; background-color: magenta; ">Content</th>
+    <td style="text-align: center; color: black; background-color: white; width: inherit;"><%= @post.content %></td>
   </tr>
   <% if @post.domitory.post_type == :gallery %>
-  <tr>
-    <th>Picture</th>
-    <td><%= image_tag @post.picture_url %></td>
-  </tr>
   <% end %>
+  <!-- 생성시각
   <tr>
     <th>Created at</th>
     <td><%= @post.created_at %></td>
   </tr>
+-->
 </table>
-
-<%= link_to 'Edit', (@domitory.present? ? edit_domitory_post_path(@domitory)  : edit_post_path(@post)), class: 'btn btn-default' %>
+<% link_to 'Edit', (@domitory.present? ? edit_domitory_post_path(@domitory)  : edit_post_path(@post)), class: 'btn btn-default' %>
 <%= link_to 'List', (@domitory.present? ? domitory_posts_path(@domitory) : posts_path), class: 'btn btn-default' %>
 
 <%= render "comments/comments" %>
