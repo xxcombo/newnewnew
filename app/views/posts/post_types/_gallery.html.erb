@@ -1,7 +1,7 @@
 <div class="container">
   <div class='gallery '>
     <% @posts.each do | post | %>
-    <div class='col-lg-3 col-md-3 col-xs-6  picture'>
+    <div class='col-lg-2 col-md-3 col-xs-6  picture'>
       <div class='image'>
         <%= link_to [post.domitory, post] do %>
         <%= image_tag(post.picture_url(:thumb), :style=>"border-radius: 50px;") %>

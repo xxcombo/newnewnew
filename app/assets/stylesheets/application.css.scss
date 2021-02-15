@@ -135,8 +135,7 @@
   }
   
   .hogwart {
-    background-image: url('https://image.freepik.com/free-vector/night-sky-background-with-stars_104785-147.jpg');
-    background-size: contain;
+    background-color: #ffffff;
     height: inherit ;
   }
 
@@ -152,9 +151,9 @@
   }
 
   .characterpicture {
-    display:block; 
-    border-radius:50px; 
+    display: block; 
     text-align: center;
+    
   }
 
   .container {
@@ -168,4 +167,24 @@
     grid-column-end: 4;
     grid-row-start: 1;
     grid-row-end: 4;
+  }
+
+  .centersentence{
+    text-align: center;
+  }
+
+  .titlehead{
+    text-align: center; 
+    color: black; 
+    background-color: rgb(255, 255, 255); 
+    border: 1px solid black;
+    padding: 5px;
+  }
+
+  .titlebody{
+    text-align: center; 
+    color: black; 
+    background-color: rgb(254, 200, 107);
+    border: 1px solid black;
+    padding: 10px;
   }

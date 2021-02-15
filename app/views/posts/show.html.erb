@@ -1,16 +1,16 @@
 <table class='table'>
-  <tr>
-    <th>Picture</th>
-    <td><%= image_tag @post.picture_url, :class=>"characterpicture"%></td>
-  </tr>
-  <tr>
-    <th style="text-align: center; color: black; background-color: magenta;">Title</th>
-    <td style="text-align: center; color: black; background-color: yellow;"><%= @post.title %></td>
-  </tr>
-  <tr>
-    <th style="text-align: center; color: black; background-color: magenta; ">Content</th>
-    <td style="text-align: center; color: black; background-color: white; width: inherit;"><%= @post.content %></td>
-  </tr>
+  <div class="characterpicture" , style="margin: 20px;">
+    <%= image_tag @post.picture_url, :style => "border-radius: 50px;"%>
+  </div>
+  <div>
+    <div class="titlehead">N A M E</div>
+    <div class="titlebody"><%= @post.title %></div>
+  </div>
+  <br>
+  <div>
+    <div class="titlehead">D E S C R I P T I O N</div>
+    <div class="titlebody"><%= @post.content %></div>
+  </div>
   <% if @post.domitory.post_type == :gallery %>
   <% end %>
   <!-- 생성시각
