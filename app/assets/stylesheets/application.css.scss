@@ -109,9 +109,7 @@
     text-align: center;
     color: white;
     background-color: black;
-
   }
-
 
   .doorgif {
     max-width: 700px;
@@ -153,38 +151,101 @@
   .characterpicture {
     display: block; 
     text-align: center;
-    
   }
-
-  .container {
-    display: grid;
-    grid-template-columns: 250px 250px auto;
-    grid-template-rows: 260px 260px auto;
-  }
-
-  .gallery {
-    grid-column-start: 1;
-    grid-column-end: 4;
-    grid-row-start: 1;
-    grid-row-end: 4;
-  }
-
+  
   .centersentence{
     text-align: center;
   }
-
+  
   .titlehead{
     text-align: center; 
     color: black; 
     background-color: rgb(255, 255, 255); 
     border: 1px solid black;
     padding: 5px;
+    margin: 10px 50px;
+    border-radius: 15px;
   }
-
+  
   .titlebody{
     text-align: center; 
     color: black; 
     background-color: rgb(254, 200, 107);
     border: 1px solid black;
     padding: 10px;
+    margin: 10px 50px;
+    border-radius: 15px;
   }
+  
+  .over{ 
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+  }
+    
+  .row {
+  }
+  
+  .column {
+    float: left;
+    width: 50%;
+  }
+  $trans-dur: 1s;
+$long-trans: 3s;
+
+svg{ width: 100%; }
+
+.bg-sky.night{
+  transition: opacity $long-trans;
+  .night &{
+    opacity: 1;
+  }  
+}
+
+.windows{
+  &, & rect, & polygon{
+    transition: fill $trans-dur;
+    .night &{
+      $color: #FFF6B6;
+      fill: #FFF6B6;
+    }
+  }
+}
+
+.overlay{
+  transition: opacity $long-trans;
+  path{ fill: #000; }
+  .night & { opacity: 0.4; }
+  .night #midground & { opacity: 0.6; }
+  .night #foreground & { opacity: 0.5; }
+  .night #quidditch & { opacity: 0.6; }
+}
+
+.shadow{
+  opacity: 1;
+  transition: opacity $long-trans;
+  .night & { opacity: 0; }
+}
+
+.tqtq{
+  background-color:#93D9F3;
+}
+.night .tqtq{
+  background-color: #3e3e3e;
+}
+.time{
+  position: absolute;
+  padding: 10px;
+  font: 1.2em Helvetica, Arial, sans;
+  cursor: pointer;
+  box-sizing: border-box;
+  &:before{
+    content: "Nox";
+    transition: color $trans-dur;
+    .night &{
+      content: "Lumos";
+      color: #fff;
+    }
+  }
+}

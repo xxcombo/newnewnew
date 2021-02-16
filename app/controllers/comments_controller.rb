@@ -4,7 +4,8 @@ class CommentsController < ApplicationController
 
   def create
     @comment = @post.comments.new(comment_params)
-    @comment.save
+    @comment.user_id = current_user.id
+    @comment.save!
   end
 
   def destroy

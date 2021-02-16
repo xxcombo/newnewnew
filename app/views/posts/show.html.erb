@@ -1,4 +1,4 @@
-<table class='table'>
+<table class='table' style="background-color: pink;">
   <div class="characterpicture" , style="margin: 20px;">
     <%= image_tag @post.picture_url, :style => "border-radius: 50px;"%>
   </div>
@@ -21,6 +21,6 @@
 -->
 </table>
 <% link_to 'Edit', (@domitory.present? ? edit_domitory_post_path(@domitory)  : edit_post_path(@post)), class: 'btn btn-default' %>
-<%= link_to 'List', (@domitory.present? ? domitory_posts_path(@domitory) : posts_path), class: 'btn btn-default' %>
+<%= link_to 'List', (@domitory.present? ? domitory_posts_path(@domitory) : posts_path), class: 'ui inverted orange button', style:"position: absolute; right: 0; " %>
 
 <%= render "comments/comments" %>

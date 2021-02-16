@@ -1,16 +1,37 @@
-
 <div class="pusher" style="position: static; heigth: 50px; width: 100%;">
-  <div class="ui inverted vertical masthead center aligned segment">
-    <div class="ui container">
-      <div class="ui large secondary inverted pointing menu">
-        <a class="toc item">
-        </a>
+  <div class="ui inverted menu">
+    <% Domitory.all.each do |domitory| %>
+
+    <%= link_to domitory.title, domitory_posts_path(domitory), class: "item #{params[:domitory_id] == domitory.id ? 'active' : ''}" %>
+    <% end %>
+
+
+    <div class="ui dropdown item" tabindex="0">
+      Dropdown
+      <i class="dropdown icon"></i>
+      <div class="menu transition hidden" tabindex="-1" z-index="5">
         <% Domitory.all.each do |domitory| %>
-          <li class="<%= params[:domitory_id] == domitory.id ? 'active' : '' %>">
-            <%= link_to domitory.title, domitory_posts_path(domitory) %>
-          </li>
-        <% end %>
+            <%= link_to domitory.title, domitory_posts_path(domitory), class: "item #{params[:domitory_id] == domitory.id ? 'active' : ''}" %>
+        <% end%>
       </div>
+    </div>
+
+
+    <div class="right menu">
+      <div class="item">
+        <div class="ui transparent inverted icon input">
+          <i class="search icon"></i>
+          <input type="text" placeholder="Search">
+        </div>
+      </div>
+      <a class="item">Link</a>
+
+      <% if current_user %>
+      <button class="ui red button"><%= link_to "Log_out", destroy_user_session_path, :style => "font-size: 30px; color: white;", data:{method:"delete"} %></button>
+      <% else %>
+      <button class="ui left purple attached button"><%= link_to "Log-in", new_user_session_path, :style => "font-size: 30px; color: white;" %></button>
+      <button class="right purple attached ui button"><%= link_to "Sign-up", new_user_registration_path, :style => "font-size: 30px; color: white;" %></button>
+      <% end%>
     </div>
   </div>
 </div>

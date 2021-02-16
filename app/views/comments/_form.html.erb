@@ -1,10 +1,12 @@
 <div id="comments_form_<%=comment.post.id%>">
   <%= simple_form_for([comment.post, comment], remote: true ) do | f | %>
-  <div class='form-inputs'>
-    <%= f.input :body, label: false, placeholder: 'Add a comment.', input_html: { rows: 5 } %>
-  </div>
-  <div class='form-actions commentbutton'>
-    <input type="submit" name="commit" value="Create Comment" class="btn " data-disable-with="Create Comment">
-  </div>
+    <% if current_user %>
+    <div class='form-inputs'>
+      <%= f.input :body, label: false, placeholder: ' 악플달지마.. 헤으응.. ', input_html: { rows: 5 } %>
+    </div>
+    <div class='form-actions commentbutton'>
+      <input type="submit" name="commit" value="Create Comment" class="ui pink button" data-disable-with="Create Comment">
+    </div>
+    <% end%>
   <% end %>
 </div>

@@ -2,8 +2,8 @@
   <%= simple_form_for(@domitory.present? ? [@post.domitory, @post] : @post) do |f| %>
   <%= f.error_notification %>
   <div class="form-inputs">
-    <%= f.input :title %>
-    <%= f.input :content, input_html: { rows: 10 } %>
+    <%= f.input :title, placeholder: "이 사람의 이름을 적어주세요!" %>
+    <%= f.input :content, placeholder: "이 사람에 대한 설명을 자세히 적어주세요!", input_html: { rows: 10 } %>
     <% if @post.domitory.post_type == :gallery %>
     <%= f.input :picture, as: :file %>
     <%= f.hidden_field :picture_cache %>
@@ -12,8 +12,10 @@
 
   <div class="form-actions">
     <%= f.button :submit %>
-    <%= link_to 'Show', (@domitory.present? ? [@post.domitory, @post] : @post), class: 'btn btn-default' if @post.persisted? %>
+    <%= link_to 'Show', (@domitory.present? ? [@post.domitory, @post] : @post),style: 'border: 1px solid black;', class: 'btn btn-default' if @post.persisted? %>
     <%= link_to 'List', (@domitory.present? ? domitory_posts_path(@domitory) : posts_path), class: 'btn btn-default' %>
   </div>
   <% end %>
 </div>
+
+

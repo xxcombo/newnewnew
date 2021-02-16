@@ -1,36 +1,50 @@
-<div class="container">
-  <div class='gallery '>
+<div class="tqtq">
+  <div class="container">
     <% @posts.each do | post | %>
-    <div class='col-lg-2 col-md-3 col-xs-6  picture'>
-      <div class='image'>
-        <%= link_to [post.domitory, post] do %>
-        <%= image_tag(post.picture_url(:thumb), :style=>"border-radius: 50px;") %>
-        <% end if post.picture?%>
+    <%= link_to [post.domitory, post] do %>
+
+    <div class="row" , style="margin: 20px;">
+
+      <div class="column">
+        <%= image_tag(post.picture_url(:thumb), :style=>" border-radius: 50px; border: 1px solid black; width:") %>
       </div>
-      <div class='title' style="text-align: center; color: black; background-color: yellow; border-radius:20px; margin-top:3px;"><%= post.title %></div>
-      <div class='content' style="text-align: center; color: black; background-color: white; border-radius:20px; margin-top:3px;"><%= post.content %></div>
+
+      <div class="column">
+        <h3>
+          N A M E :
+        </h3>
+        <div class='title' style="padding: 5px; text-align: center; color: black; background-color: white; border-radius:20px; margin-top:3px; border: 1px solid black;"><%= post.title %></div>
+        <br />
+        <h3>
+          D E S C :
+        </h3>
+        <div class='content over' style="padding: 5px; text-align: center; color: black; background-color: rgb(254, 200, 107); border-radius:20px; margin-top:3px; border: 1px solid black;"><%= post.content %></div>
+      </div>
+
+    </div>
+    <div class="ui section divider"></div>
+    <% end if post.picture?%>
+    <!--
       <div class='actions'>
-        <!--
         <%= link_to [post.domitory, post] do %>
         <i class="fa fa-eye"></i>
         <% end %>
         -->
 
-        <!--
+    <!--
         <%= link_to edit_domitory_post_path(post.domitory, post) do %>
         <i class="fa fa-edit"></i>
         <% end %>
         -->
 
-        <!--
+    <!--
         <%= link_to fa_icon('trash'), [post.domitory, post], method: :delete, data: { confirm: 'Are you sure?' } %>
-        -->
       </div>
-    </div>
+        -->
     <% end %>
   </div>
-  <br>  
   <div class="makepicture">
-    <%= link_to 'Add Character', new_domitory_post_path, class: 'btn btn-default' %>
-  </div >
+    <%= link_to 'Add Character', new_domitory_post_path, class: 'ui red button' %>
+  </div>
 </div>
+<%= render 'shared/container' %>

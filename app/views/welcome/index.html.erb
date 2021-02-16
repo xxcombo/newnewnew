@@ -1,4 +1,4 @@
-<div class="main-content__wrapper" style="height: 100em;" >
+<div class="main-content__wrapper" style="height: 100em;">
   <div class="main-content">
     <div class="sorting-hat">
       <div class="sorting-hat__answer">Gryffindor!</div>
@@ -40,7 +40,14 @@
   <aside class="context">
     <div class="explanation">버튼을 누르면 기숙사를 지정해줍니다.<br /><br />1티어 : 그린핀도르 <br />
       <a href="welcome/door">기숙사로 가기</a></div>
-    </aside>
+    <br />
+    <% if current_user %>
+    <button class="ui right labeled icon button">
+      <i class="magic icon"></i>
+      로그인 하셨나요?  <%= link_to "플루가루 타기", "/domitories/1/posts" %>
+    </button>
+    <% end %>
+  </aside>
   <%= javascript_include_tag 'selectdomy' %>
 
 </div>
